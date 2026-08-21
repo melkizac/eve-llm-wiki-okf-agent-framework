@@ -11,6 +11,45 @@ The running Eve agent can search and read the Wiki through three bounded tools:
 `wiki_search`, `wiki_read`, and `wiki_sources`. Runtime `bash` and `write_file`
 are disabled so the agent cannot silently rewrite its authored knowledge.
 
+## Why use this instead of a plain Codex project?
+
+A plain Codex project is a good fit for coding, analysis, and document work when
+the repository and the current task provide enough context. This framework is
+for work where knowledge must accumulate across many sources and remain useful
+outside one Codex task.
+
+| Concern | Plain Codex project | This framework |
+|---|---|---|
+| Working context | Codex reads project files and uses the active task history, which may later be compacted or replaced by a new task | Important knowledge is maintained as explicit Wiki files rather than depending on chat history |
+| Knowledge maintenance | Project documentation is updated when someone remembers to update it | The ingest contract requires source, concept, index, manifest, and log updates together |
+| Provenance | Citations and review status depend on project-specific conventions | OKF records structured sources, production, verification, lifecycle, and freshness metadata |
+| Retrieval | Codex searches and opens repository files as needed | The Eve agent receives bounded `wiki_search`, `wiki_read`, and `wiki_sources` tools |
+| Portability | Documentation structure may make sense only inside one repository | The Wiki is an OKF v0.2 Markdown bundle that other compatible consumers can inspect |
+| Runtime boundary | Codex can edit the workspace when the user authorizes changes | The running Eve agent can read the Wiki but cannot rewrite its knowledge or raw sources |
+| Validation | Checks depend on what each project happens to provide | The repository includes OKF conformance validation, Eve discovery, evals, typechecking, and builds |
+| Long-running use | Best suited to interactive work inside Codex tasks | Designed to become an independently running agent with durable Eve sessions and an HTTP surface |
+
+The practical advantage is traceability. When the agent answers from the Wiki,
+the project can show which concept it read, which source supports that concept,
+who or what generated it, whether anyone verified it, and whether it is draft,
+stable, deprecated, or stale. A normal Codex project can adopt similar rules,
+but they are built into this repository's file contract and validation commands.
+
+Codex still has an important role. Codex builds the agent, ingests sources,
+maintains the authored Wiki, runs validation, and reviews changes. Eve is the
+separate runtime that serves the agent once it is configured and running. This
+repository does not make Codex itself persistent, and it does not currently
+include a Codex-to-Eve session bridge.
+
+### When a plain Codex project is the better choice
+
+Use a normal Codex project when the work is short-lived, the repository is
+already the source of truth, or you do not need a separately running agent.
+That route has fewer dependencies and no Wiki-maintenance overhead. This
+framework adds Node 24, Eve, structured knowledge maintenance, rebuilds, and
+runtime credentials, so its benefits matter most for recurring, source-heavy
+work where provenance and continuity justify that cost.
+
 ## Architecture
 
 | Layer | Location | Responsibility |
