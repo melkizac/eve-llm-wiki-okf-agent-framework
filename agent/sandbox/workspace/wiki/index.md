@@ -4,9 +4,9 @@ okf_version: "0.2"
 
 # LLM Wiki Index
 
-This Wiki implements a source-grounded, incrementally maintained knowledge
-layer for the Eve agent. Raw source references remain separate from maintained
-Wiki synthesis.
+This Wiki demonstrates a source-grounded, incrementally maintained knowledge
+layer inside an Eve-compatible folder scaffold. Raw source references remain
+separate from maintained Wiki synthesis. No Eve runtime is included.
 
 ## Sources
 
@@ -15,7 +15,7 @@ Wiki synthesis.
 
 ## Concepts
 
-- [LLM Wiki architecture](concepts/llm-wiki-architecture.md) — the project-specific three-layer design, runtime boundary, and maintenance workflow.
+- [LLM Wiki architecture](concepts/llm-wiki-architecture.md) — the project-specific folder design, structure-only boundary, and maintenance workflow.
 - [OKF adoption profile](concepts/okf-adoption-profile.md) — how this Eve Wiki applies OKF v0.2 and which optional features remain deferred.
 
 ## Entities

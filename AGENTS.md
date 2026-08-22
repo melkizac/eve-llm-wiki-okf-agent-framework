@@ -1,75 +1,42 @@
-# eve Agent App
+# Eve folder-structure scaffold
 
-This project uses the eve framework: an agent is a directory of files under `agent/`, and eve compiles and runs it.
+This repository is a static reference for organizing files under `agent/`. It
+is not a runnable Eve application and does not require a local Eve runtime.
 
-For a content-only change to the root agent's identity, purpose, tone, or response guidelines, edit its existing authored instructions. Fresh projects use `agent/instructions.md`; a project may instead use `agent/instructions.ts` or files under `agent/instructions/`. You do not need to read the framework docs for a content-only instructions change. A fresh project already has its selected model in `agent/agent.ts`; preserve that file unless the user asks to change the model.
+## Structure-only boundary
 
-## Read the docs before writing code
+- Do not install Node.js, pnpm, Eve, WSL, Docker, PostgreSQL, or deployment
+  tooling for structure-only work.
+- Do not request AI provider, AI Gateway, Vercel, database, or other runtime
+  credentials.
+- Do not run build, development, deployment, package-installation, or live-model
+  commands.
+- Preserve the repository as a filesystem scaffold unless the user explicitly
+  asks to create a separate runnable implementation.
 
-```sh
-ls node_modules/eve/docs
-```
+For content-only changes to identity, purpose, tone, or response guidance, edit
+`agent/instructions.md`. Use the guidance files under optional folders to decide
+where future behavior would belong; do not invent executable behavior merely to
+populate a directory.
 
-Start with `docs/README.md`: it maps each task to the page that covers it. Read that page before authoring tools, connections, channels, skills, subagents, schedules, or deployment. In a workspace or local package install, resolve the installed `eve` package location first. If the package docs are missing, use https://eve.dev/docs.
+If a user later explicitly requests a runnable Eve agent, first consult the
+current Eve documentation and treat runtime creation, dependencies, credentials,
+validation, and deployment as a separate scoped task.
 
-Use a bounded authoring loop:
-
-1. Read the relevant page and inspect only files you will modify or need to imitate.
-2. Stop discovery once the file location, imports, and definition shape are clear. Implement the smallest complete behavior the user requested.
-3. Run one narrow verification. Expand investigation only when it fails or the request needs project-specific details.
-
-Follow links or inspect public types only when the routed page leaves the task unanswered. Do not recursively glob `node_modules`, enumerate the entire docs tree, or read unrelated scaffold files when the direct path is known. Package-manager links can hide files from recursive glob tools even though direct reads work.
-
-## Prefer an existing integration
-
-When a task names an external product or service, search the registry before implementing its integration. For a generic capability, author a tool instead.
-
-```sh
-eve registry search <query> --json
-eve registry view <item>
-```
-
-Prefer items whose `implementation` is `native`; use Chat SDK adapters when no native channel fits. `registry view` links the item's documentation.
-
-Install without driving interactive prompts:
-
-```sh
-eve add <item> --non-interactive
-```
-
-Exit code 0 means setup completed, 1 failed, and 2 needs an answer or a prerequisite. On exit 2, run the `next.command` from the final NDJSON event. For a non-secret question, replace its `<JSON value>` answer placeholder with the answer you collected; string values need JSON quotes. Never pass a secret in `--answer`. See `docs/install-integrations.mdx` for setup prerequisites.
-
-## Use eve for Vercel operations
-
-Use eve to link and deploy Vercel projects:
-
-```sh
-eve link --non-interactive --project <name-or-id> [--team <team-id-or-slug>]
-eve deploy --non-interactive --yes [--project <name-or-id>]
-```
-
-A setup may report `eve link` as a prerequisite; run it, then retry the continuation. When a completed setup event has `deploymentRequired: true`, run the `next` command it reports.
-
-## Validate the change
-
-Run the validation the task requests. When it does not establish the behavior you changed, run the narrowest relevant check.
-
-
-<!-- eve-memory-agent-builder:wiki:start -->
 ## LLM Wiki maintenance
 
 Codex maintains authored sources under `agent/sandbox/workspace/raw/` and Wiki
-pages under `agent/sandbox/workspace/wiki/`. Preserve source bytes, update the
-manifest, index, related pages, and log on every ingest, and mark uncertainty or
-contradictions explicitly. The Eve runtime receives a read-only seeded snapshot;
-rebuild or start a new session after Wiki changes.
+pages under `agent/sandbox/workspace/wiki/`. Preserve source bytes and update the
+manifest, index, materially affected pages, related links, and newest-first log
+on every ingest. Mark uncertainty or contradictions explicitly.
 
 The `wiki/` directory is an OKF v0.2 bundle. Every concept document other than
 reserved `index.md` and `log.md` requires parseable YAML frontmatter with a
 non-empty `type`. Use structured `sources` entries with a `resource`, stable IDs
-for claim footnotes, `generated` for authorship, optional `verified` only when a
-real check occurred, and lifecycle values `draft`, `stable`, or `deprecated`.
-Keep root `index.md` frontmatter limited to `okf_version`, keep `log.md` free of
-frontmatter with newest ISO-date entries first, preserve unknown extension fields,
-and run `pnpm okf:validate` after every authored Wiki change.
-<!-- eve-memory-agent-builder:wiki:end -->
+for claim footnotes, `generated` for authorship, optional `verified` only after a
+real check, and lifecycle values `draft`, `stable`, or `deprecated`. Keep root
+`index.md` frontmatter limited to `okf_version`, keep `log.md` free of
+frontmatter, and preserve unknown extension fields.
+
+This scaffold intentionally has no executable validator. Review these structural
+rules directly unless the adopting project supplies its own validation method.

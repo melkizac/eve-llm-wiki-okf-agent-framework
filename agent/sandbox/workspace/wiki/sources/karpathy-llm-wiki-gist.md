@@ -45,10 +45,10 @@ and presentation tooling as optional extensions rather than core requirements.
 
 ## Adoption in this project
 
-This project adopts the architecture and workflow as an Eve-native,
-filesystem-first implementation. At runtime, the agent can search and read the
-Wiki through bounded tools. Authored sources and Wiki files remain read-only to
-the running agent and are maintained outside the runtime session.
+This project adopts the architecture and workflow as an Eve-compatible,
+filesystem-first scaffold. It demonstrates where immutable sources and
+maintained Wiki files belong but does not include runtime retrieval tools or a
+running agent.
 
 ## Source
 

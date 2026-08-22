@@ -21,7 +21,8 @@ source permalinks are retained in the raw source reference and Wiki summary.
 - Structured provenance with stable source IDs and keyed claim footnotes
 - Separate production, verification, trust-tier, lifecycle, and freshness data
 - Progressive index, newest-first chronological log, links, and best-effort consumption
-- Project validator and Eve provenance-tool support for structured sources
+- A portable filesystem profile that future consumers can validate or expose
+  through provenance-aware tools
 
 ## Deferred
 
