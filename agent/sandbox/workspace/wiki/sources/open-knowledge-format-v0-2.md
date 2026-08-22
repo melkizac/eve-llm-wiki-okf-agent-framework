@@ -43,8 +43,9 @@ versions rather than rejecting an entire bundle.
 ## Project relevance
 
 OKF supplies the interoperable metadata contract for this project's LLM Wiki.
-Eve supplies the durable agent runtime and bounded read tools; Karpathy's LLM
-Wiki pattern supplies the incremental maintenance idea. These layers complement
-one another without OKF prescribing Eve or a query infrastructure.
+The Eve folder conventions provide an optional home for that Wiki, while
+Karpathy's LLM Wiki pattern supplies the incremental maintenance idea. This
+scaffold does not include an Eve runtime, and OKF does not prescribe Eve or a
+query infrastructure.
 
 [^okf-spec]: Canonical Open Knowledge Format v0.2 specification at the adopted commit
