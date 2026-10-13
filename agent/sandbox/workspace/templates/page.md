@@ -4,7 +4,6 @@ title: Page title
 description: One-sentence summary for index and search previews.
 status: draft
 tags: []
-generated: { by: codex/gpt-5, at: 2026-08-21T21:21:16Z }
 sources:
   - id: source-id
     resource: https://example.com/replace-with-real-source
@@ -12,6 +11,9 @@ sources:
 ---
 
 # Page title
+
+Authoring template only. Replace source placeholders and record actual
+`generated.by` and `generated.at` when creating the knowledge page.
 
 ## Summary
 

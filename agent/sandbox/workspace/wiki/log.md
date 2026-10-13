@@ -1,5 +1,14 @@
 # Wiki Log
 
+## 2026-10-14
+
+- **Update**: Added a student adoption guide with the sequence Eve structure,
+  LLM Wiki workflow, then OKF formatting before ingest.
+- **Compatibility**: Documented instruction merging, canonical path reuse,
+  metadata migration, source preservation, and explicit runtime retrieval.
+- **Update**: Moved the page template outside the knowledge bundle and clarified
+  newest-first log maintenance without removing earlier history.
+
 ## 2026-08-23
 
 - **Scope change**: Converted the repository from a runnable Eve application to

@@ -4,7 +4,7 @@ title: LLM Wiki architecture
 description: Eve-compatible folder structure for a source-grounded, incrementally maintained OKF knowledge bundle.
 status: stable
 tags: [architecture, eve, llm-wiki, structure-only]
-generated: { by: codex/gpt-5, at: 2026-08-22T22:14:06Z }
+generated: { by: codex/gpt-6, at: 2026-10-13T23:25:49Z }
 sources:
   - id: karpathy-llm-wiki
     resource: /sources/karpathy-llm-wiki-gist.md
@@ -40,8 +40,9 @@ history, runtime behavior, or user-preference memory.
 3. Add an immutable source record and a maintained source summary.
 4. Update only concepts, entities, or questions materially affected.
 5. Preserve links to evidence and expose uncertainty or contradiction.
-6. Update the index and manifest, then append an ingest log entry.
-7. Record the change in the newest-first log. Any future consumer is responsible
+6. Update the index and manifest, then add an ingest entry under the current
+   ISO-date group in the newest-first log, preserving earlier history.
+7. Any future consumer is responsible
    for refreshing its own snapshot.
 
 ## Retrieval contract

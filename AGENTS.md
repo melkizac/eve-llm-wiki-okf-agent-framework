@@ -25,6 +25,12 @@ validation, and deployment as a separate scoped task.
 
 ## LLM Wiki maintenance
 
+Before adoption, follow `docs/student-adoption-guide.md`: Eve structure, one
+canonical LLM Wiki, then OKF formatting before ingest. For an existing project,
+preserve its instructions and user changes, reuse its agent and knowledge
+locations, and document path mappings. Do not create duplicate wikis or treat
+the sandbox authoring location as automatic runtime file access.
+
 Codex maintains authored sources under `agent/sandbox/workspace/raw/` and Wiki
 pages under `agent/sandbox/workspace/wiki/`. Preserve source bytes and update the
 manifest, index, materially affected pages, related links, and newest-first log
@@ -40,3 +46,7 @@ frontmatter, and preserve unknown extension fields.
 
 This scaffold intentionally has no executable validator. Review these structural
 rules directly unless the adopting project supplies its own validation method.
+
+Authoring templates live under `agent/sandbox/workspace/templates/`, outside
+the OKF wiki. Replace placeholder provenance and record actual authorship when
+creating a page. Preserve original sources and prior history during migration.
