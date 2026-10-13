@@ -11,7 +11,8 @@ It is **not an installed Eve runtime or a runnable application**.
 
 You do not need Node.js, pnpm, an AI Gateway credential, a Vercel project, WSL,
 or an Eve installation to use this repository as a folder-structure scaffold.
-Clone it, download it, or copy the parts of `agent/` that fit your project.
+Clone or download it, then follow the adoption guide to merge its instructions
+and agent structure into your project.
 
 Do not install system software or request credentials merely to inspect, copy,
 or customize this structure. Runtime dependencies become relevant only if a
@@ -27,11 +28,11 @@ agent/
 |-- tools/README.md               # Optional typed-action location
 `-- sandbox/workspace/
     |-- raw/                      # Immutable source material and references
+    |-- templates/                # Authoring examples outside the bundle
     `-- wiki/                     # Portable OKF v0.2 Markdown knowledge bundle
         |-- index.md
         |-- log.md
         |-- source-manifest.md
-        |-- _templates/
         |-- concepts/
         |-- entities/
         |-- questions/
@@ -45,12 +46,18 @@ and `schedules/` are optional and should be added only when real behavior exists
 
 ## How to use it
 
-1. Copy `agent/` into the project that will own the structure.
-2. Customize `agent/instructions.md` for the intended agent.
-3. Keep original source material under `agent/sandbox/workspace/raw/`.
-4. Maintain source-backed concepts under `agent/sandbox/workspace/wiki/`.
-5. Update the Wiki index, source manifest, related pages, and newest-first log
-   whenever knowledge is ingested or materially revised.
+Follow the [student adoption guide](docs/student-adoption-guide.md), including
+its copyable prompt and existing-project compatibility checks.
+
+1. Establish or reuse the **Eve agent structure** and personalize its instructions.
+2. Establish one **LLM Wiki workflow** with canonical raw-source and wiki paths.
+3. Apply **OKF v0.2 formatting** to that wiki before ingesting knowledge.
+4. Check metadata and links, then ingest sources and maintain the index,
+   manifest, related pages, and newest-first log.
+
+This scaffold already combines the three layers. Adopt it once; do not run
+three separate setup flows. In an existing project, merge instructions and
+reuse existing agent/wiki folders instead of overwriting or duplicating them.
 
 ## Wiki and OKF boundary
 

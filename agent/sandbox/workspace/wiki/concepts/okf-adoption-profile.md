@@ -4,7 +4,7 @@ title: OKF adoption profile
 description: Project-specific application of Open Knowledge Format v0.2 to a static Eve-compatible LLM Wiki scaffold.
 status: stable
 tags: [okf, eve, llm-wiki, implementation]
-generated: { by: codex/gpt-5, at: 2026-08-22T22:14:06Z }
+generated: { by: codex/gpt-6, at: 2026-10-13T23:25:49Z }
 sources:
   - id: okf-v0-2
     resource: /sources/open-knowledge-format-v0-2.md
@@ -18,6 +18,10 @@ sources:
 `agent/sandbox/workspace/wiki/` is the OKF v0.2 bundle. The sibling `raw/`
 directory is immutable source storage and provenance support, but it is outside
 the portable OKF bundle.
+
+Authoring templates live in sibling `templates/`, so placeholder examples are
+not indexed or consumed as knowledge. Sharing only `wiki/` does not include
+local sibling raw sources; share the workspace when that evidence is needed.
 
 ## Required project conventions
 

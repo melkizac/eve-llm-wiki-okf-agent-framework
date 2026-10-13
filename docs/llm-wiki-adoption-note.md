@@ -10,7 +10,8 @@ Access date: 2026-08-22
 ## Adopted
 
 - Immutable source layer separated from maintained Wiki synthesis
-- Source summary, concept/entity pages, a content index, and an append-only log
+- Source summary, concept/entity pages, a content index, and preserved log history
+  with new entries added under newest-first OKF date groups
 - Index-first query flow and explicit provenance
 - Contradiction, uncertainty, staleness, and orphan-page linting
 - Eve-compatible filesystem locations for future read-only search, page-reading,
